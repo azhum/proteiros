@@ -1,0 +1,122 @@
+@media (max-width: 992px) {
+    .hide-lg {
+        display: none;
+    }
+    .header {
+        &__mobile {
+            padding: 0 24px;
+            position: fixed;
+            padding-top: 130px;
+            padding-bottom: 30px;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: -100%;
+            z-index: 999;
+            background-color: var(--color-black);
+            flex-direction: column;
+            align-items: flex-start;
+            row-gap: 30px;
+            width: 100%;
+            opacity: 0;
+            transition: left 0.4s ease, opacity 0.4s ease;
+        }
+        &__logo {
+            transition: background-color 0.4s ease;
+        }
+        &__nav {
+            &-list {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            &-link {
+                font-weight: 700;
+            }
+        }
+        &__contacts {
+            display: flex;
+            flex-direction: column;
+            row-gap: 30px;
+            color: var(--color-white);
+            &-item {
+                display: flex;
+                flex-direction: column;
+                font-size: 24px;
+                font-weight: 900;
+            }
+            &-link {
+                position: relative;
+                line-height: 130%;
+                &:hover,
+                &:focus-visible {
+                    color: var(--color-white);
+                }
+            }
+        }
+        &__address {
+            font-style: normal;
+            line-height: 130%;   
+        }
+        &--nav-active {
+            .header__mobile {
+                overflow-y: auto;
+                left: 0;
+                opacity: 1;
+                transition-delay: 0s;
+            }
+            .header__logo {
+                padding-top: 50px;
+                padding-bottom: 20px;
+                margin-bottom: -20px;
+                margin-top: -50px;
+                z-index: 1000;
+                background-color: var(--color-black);
+                width: 100%;
+                transition-delay: 0.1s;
+            }
+            .nav-toggle {
+                z-index: 1000;
+            }
+        }
+    }
+
+    .intro {
+        &__title {
+            text-transform: uppercase;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .hide-md {
+        display: none;
+    }
+    
+}
+
+
+@media (max-width: 576px) {
+    
+}
+
+@media (max-width: 475px) {
+
+    
+}
+
+@media (max-width: 375px) {
+    
+}
+
+// Min
+@media (min-width: 993px) {
+    .show-lg {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .show-md {
+        display: none;
+    }
+}

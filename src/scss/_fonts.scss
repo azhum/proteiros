@@ -1,0 +1,5 @@
+@import 'mixins.scss';
+
+@include font-face('Mont', 'Mont-Regular', 400);
+@include font-face('Mont', 'Mont-SemiBold', 600);
+@include font-face('Mont', 'Mont-Bold', 700);

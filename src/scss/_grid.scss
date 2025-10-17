@@ -1,0 +1,11 @@
+@import 'mixins.scss';
+
+$container_width: 1920px;
+$cols: 12;
+
+@mixin container {
+    width: 100%;
+    max-width: $container_width;
+    padding: 0 #{fluid(24px, 60px, 768px, 1900px)};
+    margin: 0 auto;
+}

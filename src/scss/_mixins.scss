@@ -1,0 +1,27 @@
+@use "sass:math";
+
+@mixin font-face($font-family, $file-name, $weight: normal, $style: normal) {
+    @font-face {
+      font-family: $font-family;
+      font-weight: $weight;
+      font-style: $style;
+      src: url('../fonts/#{$file-name}.woff');
+      font-display: swap;
+    }
+}
+
+
+@function px-to-rem($px) {
+  $rems: math.div($px, 16px) * 1rem;
+  @return $rems;
+}
+
+
+@function fluid($min-size, $max-size, $min-breakpoint, $max-breakpoint, $unit: vw) {
+  $slope: math.div($max-size - $min-size, $max-breakpoint - $min-breakpoint);
+  $slope-to-unit: $slope * 100;
+  $intercept-rem: px-to-rem($min-size - $slope * $min-breakpoint);
+  $min-size-rem: px-to-rem($min-size);
+  $max-size-rem: px-to-rem($max-size);
+  @return clamp(#{$min-size-rem}, #{$slope-to-unit}#{$unit} + #{$intercept-rem}, #{$max-size-rem});
+}
