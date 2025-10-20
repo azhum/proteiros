@@ -17,7 +17,7 @@
 }
 
 *:focus {
-    outline-color: var(--dark-gold);
+    outline-color: var(--red);
 }
 
 html {
@@ -40,8 +40,9 @@ body {
     height: 100%;
 }
 
-h1,h2,h3,h4,h5,h6 {
-    line-height: 120%;
+h2 {
+    font-size: #{fluid(16px, 32px, 768px, 1900px)};
+    margin: 0;
 }
 
 a {
@@ -81,6 +82,10 @@ img {
 }
 
 .site-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     min-height: #{fluid(43px, 70px, 768px, 1900px)};
     padding: 0 #{fluid(20px, 35px, 768px, 1900px)};
     font-weight: 700;
@@ -88,6 +93,15 @@ img {
     &--red {
         background-color: var(--color-red);
         color: var(--color-black);
+        &:hover,
+        &:focus-visible {
+            color: var(--color-black);
+            background-color: var(--color-white);
+        }
+    }
+    &--black {
+        background-color: var(--color-black);
+        color: var(--color-white);
         &:hover,
         &:focus-visible {
             color: var(--color-black);
@@ -106,3 +120,116 @@ img {
     flex: 0 0 auto;
 }
 
+.form {
+    &__field {
+        width: 100%;
+        background-color: transparent;
+        border: 0;
+        border-bottom: 1px solid var(--color-white);
+        font-size: 14px;
+        color: var(--color-white);
+        padding-bottom: 10px;
+        outline: none;
+        line-height: 150%;
+        font-weight: 400;
+        &::placeholder {
+            color: var(--color-white);
+        }
+    }
+}
+
+.checkbox {
+    &__label {
+        font-size: #{fluid(10px, 12px, 768px, 1900px)};
+        line-height: 130%;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        column-gap: 10px;
+        &::before {
+            content: "";
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-color: var(--color-white);
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 1px;
+            width: 5px;
+            height: 10px;
+            border: solid var(--color-black);
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+    }
+    &__input {
+        display: none;
+        &:checked ~ label::after {
+            opacity: 1;
+        }
+    }
+}
+
+.section {
+    &__header {
+        display: flex;
+        row-gap: 20px;
+        &--right {
+            justify-content: flex-end;    
+        }
+        &--column {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        &:not(.no-gap) {
+            margin-bottom: #{fluid(30px, 60px, 768px, 1900px)};
+        }
+    }
+    &__title {
+        font-size: #{fluid(24px, 54px, 768px, 1900px)};
+        line-height: 130%;
+        text-transform: uppercase;
+    }
+    &__subtitle {
+        font-size: #{fluid(18px, 36px, 768px, 1900px)};
+        font-weight: 700;
+        line-height: 130%;
+    }
+}
+
+.m-125 {
+    margin: #{fluid(55px, 125px, 768px, 1900px)} 0;
+}
+
+.mt-125 {
+    margin-top: #{fluid(55px, 125px, 768px, 1900px)};
+}
+
+.mb-125 {
+    margin-bottom: #{fluid(55px, 125px, 768px, 1900px)};
+}
+
+.m-85 {
+    margin: #{fluid(35px, 85px, 768px, 1900px)} 0;
+}
+
+.mt-85 {
+    margin-top: #{fluid(35px, 85px, 768px, 1900px)};
+}
+
+.mb-85 {
+    margin-bottom: #{fluid(35px, 85px, 768px, 1900px)};
+}
+
+.mw-1190 {
+    max-width: 1190px;
+}

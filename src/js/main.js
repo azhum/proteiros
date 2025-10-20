@@ -21,6 +21,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
     document.body.classList.toggle('overflow-hidden')
     
   });
+
+  const experienceSlider = new Swiper('.experience__slider', {
+    slidesPerView: 1, // один слайд за раз
+    spaceBetween: 20, // отступ между слайдами (по желанию)
+    navigation: {
+      nextEl: '.experience__slider-next',
+      prevEl: '.experience__slider-prev',
+    },
+  });
   
 
 })
