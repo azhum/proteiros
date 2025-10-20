@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const navToggle = document.getElementById('nav-toggle');
 
   modalInit();
+  initFileAttachments();
 
   
   document.querySelectorAll('input[type=tel]')?.forEach((input) => {
@@ -22,19 +23,66 @@ document.addEventListener("DOMContentLoaded", (event) => {
     
   });
 
-  const experienceSlider = new Swiper('.experience__slider', {
-    slidesPerView: 1, // один слайд за раз
-    spaceBetween: 20, // отступ между слайдами (по желанию)
-    navigation: {
-      nextEl: '.experience__slider-next',
-      prevEl: '.experience__slider-prev',
-    },
+  document.querySelectorAll('.experience__slider')?.forEach((sliderEl, index) => {
+    const nextBtn = sliderEl.closest('.experience__block').querySelector('.experience__slider--nav--next');
+    const prevBtn = sliderEl.closest('.experience__block').querySelector('.experience__slider--nav--prev');
+
+    new Swiper(sliderEl, {
+      slidesPerView: 'auto',
+      spaceBetween: 20,
+      navigation: {
+        nextEl: nextBtn,
+        prevEl: prevBtn,
+      },
+    });
   });
   
 
 })
 
+function initFileAttachments() {
+    document.querySelectorAll('.form__attachment').forEach(wrapper => {
+        const input = wrapper.querySelector('.form__attachment-input');
+        const label = wrapper.querySelector('.form__attachment-label');
+        const btn = wrapper.querySelector('.form__attachment-icon');
+        const span = label.querySelector('span');
+        const defaultText = label.dataset.labelText;
 
+        if (!input || !label || !span || !btn) return;
+
+        input.addEventListener('click', () => {
+            input.value = '';
+        });
+
+        input.addEventListener('change', () => {
+            const file = input.files[0];
+
+            if (file) {
+                let fileName = file.name;
+                const maxLength = 15;
+
+                if (fileName.length > maxLength) {
+                    const ext = fileName.split('.').pop();
+                    const baseName = fileName.slice(0, maxLength - ext.length - 4);
+                    fileName = `${baseName}...${ext}`;
+                }
+
+                span.textContent = fileName;
+                wrapper.classList.add('added');
+            } else {
+                span.textContent = defaultText;
+                wrapper.classList.remove('added');
+            }
+        });
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+            input.value = '';
+            span.textContent = defaultText;
+            wrapper.classList.remove('added');
+        });
+    });
+}
 
 
 

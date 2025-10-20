@@ -45,6 +45,11 @@
             max-width: 100%;
         }
     }
+    .steps {
+        &__items {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
     .footer {
         &__bottom {
             align-items: flex-start;
@@ -212,6 +217,12 @@
         }
     }
 
+    .experience {
+        &__block {
+            grid-template-columns: .8fr 1fr;
+        }
+    }
+
     .process {
         &__items {
             grid-template-columns: repeat(2, 1fr);
@@ -248,7 +259,21 @@
             grid-template-columns: 1fr;
         }   
     }
+
+    .production {
+        &__items {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
     
+    .engineers {
+        &__inner {
+            grid-template-columns: 1fr;
+        }
+        &__partners {
+            margin-top: 30px;
+        }
+    }
     
     .footer {
         &__items {
@@ -263,10 +288,8 @@
     .hide-md {
         display: none;
     }
-    .about {
-        &__partners {
-            grid-template-columns: repeat(2, 1fr);
-        }
+    .form__attachment-label {
+        font-weight: 400;
     }
     .process {
         &__header {
@@ -304,6 +327,65 @@
             }
         }
     }
+    .experience {
+        &__block {
+            grid-template-columns: 1fr;
+        }
+        &__right {
+            padding: 0;
+            order: -1;
+        }
+        &__slider-navigation {
+            justify-content: flex-end;
+        }
+    }
+    .specialization {
+        &__content {
+            grid-template-columns: 1fr;
+        }
+        &__img {
+            height: 212px;
+        }
+    }
+    .benefits {
+        grid-template-columns: 1fr;
+    }
+    .production {
+        &__header {
+            flex-direction: column;
+        }
+        &__items {
+            grid-template-columns: 1fr;
+        }
+    }
+    .visit {
+        &__inner {
+            grid-template-columns: 1fr;
+        }
+        &__img {
+            height: 218px;
+        }
+        &__subtitle {
+            max-width: 330px;
+        }
+    }
+    .steps {
+        &__header {
+            flex-direction: column;
+        }
+        &__items {
+            grid-template-columns: 1fr;
+        }
+        &__item-header {
+            padding-top: 42px;
+        }
+    }
+    .engineers {
+        &__items {
+            grid-template-columns: 1fr;
+        }
+    }
+    
     .footer {
         padding-bottom: 55px;
         &__top {
@@ -322,9 +404,6 @@
 
 @media (max-width: 576px) {
     .feedback-form {
-        &__title {
-            max-width: 262px;
-        }
         &__agreement {
             flex-direction: column;
         }
@@ -338,7 +417,16 @@
             font-size: 12px;
         }
     }
+    .engineers {
+        &__partners-bottom {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
     .about {
+        &__partners {
+            grid-template-columns: repeat(2, 1fr);
+        }
         &__feature {
             &-title {
                 max-width: 200px;
